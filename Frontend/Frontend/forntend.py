@@ -124,7 +124,7 @@ def api_GetStudentInfo(name,typel,rollno):
 	return out
 
 
-@app.route("/<typel>/<name>/<rollno>/GetStudentInfo")
+@app.route("/<typel>/<name>/<rollno>/GetInfo")
 def GetStudentInfo(name,typel,rollno):
 	if(typel != "Faculty" and typel != "Student"):
 		return "error"
@@ -151,10 +151,10 @@ def Faculty_error(name):
 	return render_template("AddGrade.html",post={'error':'Something went wrong try again'}),201
 
 @app.route("/admin/<name>/Asuccess")
-def Faculty_success(name):
+def Admin_success(name):
 	return render_template("AdmitAStudent.html",post={'error':'Student Admitted'})
 @app.route("/admin/<name>/Aerror")
-def Faculty_error(name):
+def Admin_error(name):
 	return render_template("AdmitAStudent.html",post={'error':'Something went wrong try again'}),201
 
 @app.route("/Student/<name>")
